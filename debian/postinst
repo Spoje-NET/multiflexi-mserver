@@ -5,7 +5,7 @@ set -e
 APPLICATION=$(echo "$DPKG_MAINTSCRIPT_PACKAGE")
 for file in /usr/lib/$APPLICATION/multiflexi/*.credprototype.json
 do
-	multiflexi-cli crprototype import-json --file $file
+	multiflexi-cli crprototype import-json --file "$file"
 done
 
 #DEBHELPER#

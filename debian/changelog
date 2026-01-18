@@ -1,4 +1,4 @@
-multiflexi-mserver (0.1.0) UNRELEASED; urgency=low
+multiflexi-mserver (0.1.2) unstable; urgency=low
 
   * Initial release. Closes: #nnnn
     <nnnn is the bug number of your ITP>
