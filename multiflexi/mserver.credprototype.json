@@ -1,0 +1,59 @@
+{
+  "uuid": "6ba7b814-9dad-11d1-80b4-00c04fd430c8",
+  "code": "mserver",
+  "name": "Stormware Pohoda",
+  "description": "Credential type for connecting to Stormware Pohoda mServer API",
+  "version": "1.0.0",
+  "logo": "mServer.svg",
+  "fields": [
+    {
+      "keyword": "POHODA_ICO",
+      "type": "string",
+      "name": "Organization Number",
+      "description": "Organization Number for Pohoda",
+      "hint": "123245678",
+      "required": true
+    },
+    {
+      "keyword": "POHODA_URL",
+      "type": "string",
+      "name": "mServer API Endpoint",
+      "description": "URL of the mServer API",
+      "hint": "http://pohoda:40000",
+      "required": true
+    },
+    {
+      "keyword": "POHODA_USERNAME",
+      "type": "string",
+      "name": "mServer API Username",
+      "description": "Username for the mServer API",
+      "hint": "winstrom",
+      "required": true
+    },
+    {
+      "keyword": "POHODA_PASSWORD",
+      "type": "password",
+      "name": "mServer API Password",
+      "description": "Password for the mServer API",
+      "hint": "pohoda",
+      "required": true
+    }
+  ,
+    {
+      "keyword": "POHODA_SECONDARY_USERNAME",
+      "type": "string",
+      "name": "Secondary Account Username",
+      "description": "Username for writing December data in January (previous year)",
+      "hint": "winstrom2",
+      "required": false
+    },
+    {
+      "keyword": "POHODA_SECONDARY_PASSWORD",
+      "type": "password",
+      "name": "Secondary Account Password",
+      "description": "Password for writing December data in January (previous year)",
+      "hint": "pohoda2",
+      "required": false
+    }
+  ]
+}
