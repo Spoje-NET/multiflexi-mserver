@@ -1,1 +1,2 @@
-multiflexi/* usr/lib/multiflexi-mserver/multiflexi/
+multiflexi/*.json usr/lib/multiflexi-mserver/multiflexi/
+multiflexi/*.svg usr/share/multiflexi/images/
