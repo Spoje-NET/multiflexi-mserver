@@ -79,6 +79,7 @@ distributions.each { distro ->
                                 sh 'sudo DEBIAN_FRONTEND=noninteractive DEBCONF_DEBUG=' + debconf_debug + ' apt-get -y install ' + pkgName + ' || sudo apt-get -y -f install'
                             }
                         }
+			sh 'multiflexi-cli crprototype get --uuid=6ba7b814-9dad-11d1-80b4-00c04fd430c8'
                     }
                 }
                 stage('Archive artifacts ' + distroName ) {
