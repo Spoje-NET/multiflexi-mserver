@@ -2,7 +2,7 @@
 
 set -e
 
-multiflexi-cli crprototype import-json --file /usr/lib/multiflexi-mserver/multiflexi/multiflexi-mserver.install
+multiflexi-cli crprototype import-json --file=/usr/lib/multiflexi-mserver/multiflexi/mserver.credprototype.json
 
 #DEBHELPER#
 

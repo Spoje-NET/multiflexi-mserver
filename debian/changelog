@@ -1,6 +1,13 @@
+multiflexi-mserver (1.0.0) UNRELEASED; urgency=medium
+
+  * first release
+
+ -- vitex <info@vitexsoftware.cz>  Mon, 19 Jan 2026 00:01:44 +0100
+
 multiflexi-mserver (0.1.2) unstable; urgency=low
 
+  [ Vítězslav Dvořák ]
   * Initial release. Closes: #nnnn
     <nnnn is the bug number of your ITP>
 
- -- Vítězslav Dvořák <info@vitexsoftware.cz>  Sun, 18 Jan 2026 15:10:52 +0100
+ -- vitex <info@vitexsoftware.cz>  Mon, 19 Jan 2026 00:01:34 +0100
