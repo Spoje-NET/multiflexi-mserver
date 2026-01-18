@@ -1,0 +1,13 @@
+#!/bin/sh
+# If no user provided script is activated in this file, you should remove this file.
+set -e
+
+APPLICATION=$(echo "$DPKG_MAINTSCRIPT_PACKAGE")
+for file in /usr/lib/$APPLICATION/multiflexi/*.credprototype.json
+do
+	multiflexi-cli crprototype import-json --file $file
+done
+
+#DEBHELPER#
+
+exit 0

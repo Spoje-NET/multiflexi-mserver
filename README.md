@@ -1,5 +1,7 @@
 # MultiFlexi mServer Credential Prototype
 
+![multiflexi-mserver](multiflexi-mserver.svg?raw=true)
+
 ![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 This repository contains the credential prototype for connecting MultiFlexi to Stormware Pohoda mServer API.

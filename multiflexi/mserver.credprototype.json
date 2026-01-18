@@ -37,8 +37,7 @@
       "description": "Password for the mServer API",
       "hint": "pohoda",
       "required": true
-    }
-  ,
+    },
     {
       "keyword": "POHODA_SECONDARY_USERNAME",
       "type": "string",

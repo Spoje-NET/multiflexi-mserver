@@ -1,0 +1,30 @@
+#!/bin/sh
+# If no user provided script is activated in this file, you should remove this file.
+set -e
+
+. /usr/share/debconf/confmodule
+case "$1" in
+    remove)
+        APPLICATION=$(echo "$DPKG_MAINTSCRIPT_PACKAGE")
+        for file in /usr/lib/$APPLICATION/multiflexi/*.credprototype.json
+        do
+          multiflexi-cli crprototype remove-json --file  "$file"
+        done
+    ;;
+
+    upgrade|deconfigure)
+    ;;
+
+    failed-upgrade)
+    ;;
+
+    *)
+        echo "prerm called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+
+#DEBHELPER#
+
+exit 0

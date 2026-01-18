@@ -1,0 +1,25 @@
+Source: multiflexi-mserver
+Section: misc
+Priority: optional
+Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
+Build-Depends:
+ debhelper-compat (= 13),
+Standards-Version: 4.7.0
+Homepage: https://github.com/VitexSoftware/multiflexi-mserver
+Rules-Requires-Root: no
+#Vcs-Git: https://salsa.debian.org/debian/multiflexi-mserver.git
+#Vcs-Browser: https://salsa.debian.org/debian/multiflexi-mserver
+
+Package: multiflexi-mserver
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ multiflexi-cli,
+ ${misc:Depends}
+Description: MultiFlexi mServer Credential Prototype
+ This repository contains the credential prototype for connecting MultiFlexi
+ to Stormware Pohoda mServer API.
+ .
+ This credential prototype defines the configuration fields required to connect
+ to the Pohoda mServer API, including support for a secondary account for
+ year-end (December/January) data entry.
