@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.spoje_net.multiflexi_mserver</id>
+  <metadata_license>MIT</metadata_license>
+  <project_license>__NO_COPYRIGHT_NOR_LICENSE__</project_license>
+  <name>multiflexi-mserver</name>
+  <summary>MultiFlexi mServer Credential Prototype</summary>
+  <description>
+    <p>
+      This repository contains the credential prototype for connecting MultiFlexi to Stormware Pohoda mServer API. This credential prototype defines the configuration fields required to connect to the Pohoda mServer API, including support for a secondary account for year-end (December/January) data entry.
+    </p>
+  </description>
+  <categories>
+    <category>Utility</category>
+  </categories>
+  <url type="homepage">https://github.com/Spoje-NET/multiflexi-mserver</url>
+  <url type="bugtracker">https://github.com/Spoje-NET/multiflexi-mserver/issues</url>
+  <developer id="io.github.spoje_net">
+    <name>Spoje.Net</name>
+  </developer>
+  <content_rating type="oars-1.1"/>
+</component>
