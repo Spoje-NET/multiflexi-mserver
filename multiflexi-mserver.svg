@@ -241,6 +241,14 @@
        id="g249"
        transform="matrix(0.80370661,0,0,0.80370661,-425.96137,-149.4967)"
        style="fill:#ffd42a;fill-opacity:1;filter:url(#filter776)">
+      <animateTransform
+         attributeName="transform"
+         type="rotate"
+         from="0 753 476"
+         to="360 753 476"
+         dur="8s"
+         repeatCount="indefinite"
+         additive="sum"/>
       <path
          id="path5740"
          style="color:#000000;text-indent:0;text-transform:none;fill:#ffd42a;fill-opacity:1;fill-rule:evenodd"
