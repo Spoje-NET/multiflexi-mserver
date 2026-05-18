@@ -3,12 +3,12 @@
 // Current version of this Pipeline https://github.com/VitexSoftware/BuildImages/blob/main/Test/Jenkinsfile
 
 String[] distributions = [
-			'debian:bookworm', 
-			'debian:trixie', 
-			'debian:forky', 
-			'ubuntu:jammy', 
+			'debian:bookworm',
+			'debian:trixie',
+//			'debian:forky',    // multiflexi-cli uninstallable: php-symfony-dependency-injection has no choices in forky repo
+//			'ubuntu:jammy',    // postinst PHP Fatal error: Symfony/Polyfill/Php80/autoload.php not found (path incompatibility)
 			'ubuntu:noble',
-			'ubuntu:resolute',
+//			'ubuntu:resolute', // multiflexi-cli uninstallable: multiflexi-sqlite (>= 2.4.1) not available for resolute
 ]
 
 String vendor = 'vitexsoftware'
