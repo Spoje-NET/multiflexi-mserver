@@ -1,20 +1,19 @@
 Source: multiflexi-mserver
-Section: misc
+Section: web
 Priority: optional
 Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
 Build-Depends:
  debhelper-compat (= 13),
 Standards-Version: 4.7.0
-Homepage: https://github.com/VitexSoftware/multiflexi-mserver
+Homepage: https://github.com/Spoje-NET/multiflexi-mserver
 Rules-Requires-Root: no
-#Vcs-Git: https://salsa.debian.org/debian/multiflexi-mserver.git
-#Vcs-Browser: https://salsa.debian.org/debian/multiflexi-mserver
 
 Package: multiflexi-mserver
 Architecture: all
 Multi-Arch: foreign
 Depends:
- multiflexi-cli,
+ php-vitexsoftware-multiflexi-core,
+ multiflexi-cli (>= 2.2.0),
  ${misc:Depends}
 Description: MultiFlexi mServer Credential Prototype
  This repository contains the credential prototype for connecting MultiFlexi

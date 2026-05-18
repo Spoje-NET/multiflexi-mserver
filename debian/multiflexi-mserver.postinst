@@ -1,12 +1,22 @@
 #!/bin/sh
-
+# postinst script for multiflexi-mserver
 set -e
 
-file /usr/lib/multiflexi-mserver/multiflexi/mserver.credprototype.json
-cat /usr/lib/multiflexi-mserver/multiflexi/mserver.credprototype.json
+case "$1" in
+    configure)
+        if [ -x /usr/bin/multiflexi-cli ]; then
+            multiflexi-cli credential-prototype:sync
+        fi
+        ;;
 
+    abort-upgrade|abort-remove|abort-deconfigure)
+        ;;
 
-multiflexi-cli credential-prototype:import-json --file=/usr/lib/multiflexi-mserver/multiflexi/mserver.credprototype.json
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+        ;;
+esac
 
 #DEBHELPER#
 
