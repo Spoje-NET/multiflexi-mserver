@@ -2,7 +2,7 @@
 <component type="desktop-application">
   <id>io.github.spoje_net.multiflexi_mserver</id>
   <metadata_license>MIT</metadata_license>
-  <project_license>__NO_COPYRIGHT_NOR_LICENSE__</project_license>
+  <project_license>MIT</project_license>
   <name>multiflexi-mserver</name>
   <summary>MultiFlexi mServer Credential Prototype</summary>
   <description>
