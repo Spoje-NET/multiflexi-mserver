@@ -1,2 +1,4 @@
 multiflexi/*.json usr/lib/multiflexi-mserver/multiflexi/
 multiflexi/*.svg usr/share/multiflexi/images/
+multiflexi-mserver.svg usr/share/icons/hicolor/scalable/apps/
+debian/io.github.spoje_net.multiflexi_mserver.metainfo.xml usr/share/metainfo/

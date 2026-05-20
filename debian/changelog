@@ -1,8 +1,13 @@
-multiflexi-mserver (1.0.0) UNRELEASED; urgency=medium
+multiflexi-mserver (1.1.0) unstable; urgency=medium
 
+  [ vitex ]
   * first release
 
- -- vitex <info@vitexsoftware.cz>  Mon, 19 Jan 2026 00:01:44 +0100
+  [ Vítězslav Dvořák ]
+  * Packaging: AppStream metainfo, stock icon, improved postinst,
+    updated Jenkinsfile CI
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Mon, 18 May 2026 16:56:17 +0200
 
 multiflexi-mserver (0.1.2) unstable; urgency=low
 
