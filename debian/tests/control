@@ -5,3 +5,7 @@
 #
 Tests: credential-prototype
 Restrictions: needs-root
+
+Tests: php-class
+Depends: multiflexi-mserver
+Restrictions: needs-root

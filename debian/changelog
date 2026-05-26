@@ -1,3 +1,12 @@
+multiflexi-mserver (1.2.0) unstable; urgency=medium
+
+  * feat: add smart credential prototype PHP classes (CredentialProtoType and Ui)
+  * feat: add multiflexi-mserver-ui package with live mServer /status connection test
+  * fix: use credential-prototype:import-json in postinst instead of sync
+  * chore: add composer.json with PSR-4 autoload mapping
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Mon, 26 May 2026 12:00:00 +0200
+
 multiflexi-mserver (1.1.1) unstable; urgency=medium
 
   * fix: add php-symfony-polyfill-php80 dependency to fix postinst failure

@@ -6,29 +6,52 @@
 
 This repository contains the credential prototype for connecting MultiFlexi to Stormware Pohoda mServer API.
 
-## Overview
+## Packages
 
-This credential prototype defines the configuration fields required to connect to the Pohoda mServer API, including support for a secondary account for year-end (December/January) data entry.
+| Package | Contents |
+|---|---|
+| `multiflexi-mserver` | Credential prototype JSON, SVG logo, `CredentialProtoType\MServer` PHP class |
+| `multiflexi-mserver-ui` | `Ui\CredentialType\MServer` PHP class — web form with live connection test |
 
 ## Fields
 
-- **POHODA_ICO**: Organization Number for Pohoda (required)
-- **POHODA_URL**: URL of the mServer API (required)
-- **POHODA_USERNAME**: Username for the mServer API (required)
-- **POHODA_PASSWORD**: Password for the mServer API (required)
-- **POHODA_SECONDARY_USERNAME**: Secondary account username for writing December data in January (optional)
-- **POHODA_SECONDARY_PASSWORD**: Secondary account password for writing December data in January (optional)
+| Keyword | Type | Required | Description |
+|---|---|---|---|
+| `POHODA_ICO` | string | yes | Organization Number (IČO) |
+| `POHODA_URL` | string | yes | mServer API base URL, e.g. `http://pohoda:40000` |
+| `POHODA_USERNAME` | string | yes | mServer API username |
+| `POHODA_PASSWORD` | password | yes | mServer API password |
+| `POHODA_SECONDARY_USERNAME` | string | no | Secondary account username for December→January data entry |
+| `POHODA_SECONDARY_PASSWORD` | password | no | Secondary account password for December→January data entry |
 
-## Year-End Data Entry Mechanism
+## Smart Credential Prototype (UI)
 
-If data for December is being entered in January, the system will use the secondary account credentials (if provided) to write data into the previous year, provided the secondary account has the necessary permissions.
+When `multiflexi-mserver-ui` is installed, the credential form performs a live connection test against `{POHODA_URL}/status` using HTTP Basic Auth. On success it displays:
 
-## Usage
+- **Company** — company name registered in Pohoda
+- **Status** — server state (`idle` / `busy`)
+- **Processing** — number of requests currently being processed
+- **Server** — mServer self-reported URL
 
-1. Place the `mserver.credprototype.json` file in your MultiFlexi credential prototypes directory.
-2. Configure the required fields in the MultiFlexi UI or via configuration management.
-3. For organizations that need to write December data in January, provide the secondary account credentials with permissions for the previous year.
+Authentication failures and network errors are shown as inline alerts.
 
+## Year-End Data Entry
+
+If data for December is being entered in January, provide the secondary account credentials. That account must have write permissions for the previous fiscal year in Pohoda.
+
+## Installation
+
+```sh
+apt install multiflexi-mserver          # core fields + JSON prototype
+apt install multiflexi-mserver-ui       # web form with connection check
+```
+
+The postinst script registers the prototype automatically:
+
+```sh
+multiflexi-cli credential-prototype:import-json \
+  --file /usr/lib/multiflexi-mserver/multiflexi/mserver.credprototype.json
+```
 
 ## License
 

@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+CRED_CLASS="/usr/share/php/MultiFlexi/CredentialProtoType/MServer.php"
+
+test -f "$CRED_CLASS" || { echo "FAIL: $CRED_CLASS not found"; exit 1; }
+grep -q "class MServer" "$CRED_CLASS" || { echo "FAIL: MServer class not found in $CRED_CLASS"; exit 1; }
+grep -q "6ba7b814-9dad-11d1-80b4-00c04fd430c8" "$CRED_CLASS" || { echo "FAIL: expected UUID not found in $CRED_CLASS"; exit 1; }
+
+echo "OK: MServer PHP class installed and valid"
