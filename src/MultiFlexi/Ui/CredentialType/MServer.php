@@ -89,7 +89,19 @@ class MServer extends \MultiFlexi\Ui\CredentialFormHelperPrototype
             )));
 
             if (!empty($result['info'])) {
-                $serverPanel = new \Ease\TWB4\Panel(_('Server Status'), 'info');
+                $panelType  = 'info';
+                $processing = (int) ($result['raw']['processing'] ?? 0);
+                $status     = $result['raw']['status'] ?? '';
+
+                if ($processing > 0 || $status === 'busy') {
+                    $this->addItem(new \Ease\TWB4\Alert('warning', sprintf(
+                        _('mServer is busy (processing: %d) — server may be frozen or under heavy load'),
+                        $processing,
+                    )));
+                    $panelType = 'warning';
+                }
+
+                $serverPanel = new \Ease\TWB4\Panel(_('Server Status'), $panelType);
                 $serverList  = new \Ease\Html\DlTag(null, ['class' => 'row']);
 
                 foreach ($result['info'] as $key => $value) {
@@ -112,37 +124,51 @@ class MServer extends \MultiFlexi\Ui\CredentialFormHelperPrototype
     }
 
     /**
+     * Translate a curl error code into a human-readable message.
+     */
+    private static function humanizeCurlError(int $errno, string $url): string
+    {
+        return match ($errno) {
+            \CURLE_COULDNT_CONNECT    => sprintf(_('Cannot connect to mServer at %s — server may be down or firewall is blocking the port'), $url),
+            \CURLE_OPERATION_TIMEDOUT => sprintf(_('mServer at %s is not responding (timeout) — server may be frozen'), $url),
+            \CURLE_COULDNT_RESOLVE_HOST => sprintf(_('Cannot resolve hostname in %s — check POHODA_URL'), $url),
+            \CURLE_GOT_NOTHING        => sprintf(_('mServer at %s accepted the connection but sent no response — server may be frozen'), $url),
+            default                   => sprintf(_('Connection to %s failed'), $url),
+        };
+    }
+
+    /**
      * Test mServer /status endpoint with HTTP Basic Auth.
      *
-     * @return array{success: bool, message: string, info: array<string, string>}
+     * Uses curl so that both connect timeout and total request timeout are
+     * enforced — file_get_contents only has a socket read timeout and can
+     * block for the full OS TCP handshake time when mServer is unreachable.
+     *
+     * @return array{success: bool, message: string, info: array<string, string>, raw: array<string, string>}
      */
     private static function testConnection(string $statusUrl, string $username, string $password): array
     {
-        $context = stream_context_create([
-            'http' => [
-                'method'  => 'GET',
-                'header'  => 'Authorization: Basic '.base64_encode($username.':'.$password)."\r\n",
-                'timeout' => 10,
-                'ignore_errors' => true,
-            ],
+        $ch = curl_init($statusUrl);
+        curl_setopt_array($ch, [
+            \CURLOPT_RETURNTRANSFER => true,
+            \CURLOPT_HTTPAUTH       => \CURLAUTH_BASIC,
+            \CURLOPT_USERPWD        => $username.':'.$password,
+            \CURLOPT_CONNECTTIMEOUT => 5,
+            \CURLOPT_TIMEOUT        => 10,
+            \CURLOPT_FOLLOWLOCATION => false,
         ]);
 
-        $response = @file_get_contents($statusUrl, false, $context);
+        $response   = curl_exec($ch);
+        $httpStatus = (int) curl_getinfo($ch, \CURLINFO_HTTP_CODE);
+        $curlErrno  = curl_errno($ch);
+        curl_close($ch);
 
-        if ($response === false) {
+        if ($response === false || $curlErrno !== 0) {
             return [
                 'success' => false,
-                'message' => error_get_last()['message'] ?? _('Connection failed'),
+                'message' => self::humanizeCurlError($curlErrno, $statusUrl),
                 'info'    => [],
             ];
-        }
-
-        $httpStatus = 0;
-
-        if (isset($http_response_header) && \is_array($http_response_header)) {
-            if (preg_match('#HTTP/\S+\s+(\d+)#', $http_response_header[0], $m)) {
-                $httpStatus = (int) $m[1];
-            }
         }
 
         if ($httpStatus === 401) {
@@ -162,6 +188,7 @@ class MServer extends \MultiFlexi\Ui\CredentialFormHelperPrototype
         }
 
         $info = [];
+        $raw  = [];
 
         $xml = @simplexml_load_string($response);
 
@@ -171,10 +198,12 @@ class MServer extends \MultiFlexi\Ui\CredentialFormHelperPrototype
             }
 
             if (isset($xml->status)) {
+                $raw['status']         = (string) $xml->status;
                 $info[_('Status')]     = (string) $xml->status;
             }
 
             if (isset($xml->processing)) {
+                $raw['processing']     = (string) $xml->processing;
                 $info[_('Processing')] = (string) $xml->processing;
             }
 
@@ -191,6 +220,7 @@ class MServer extends \MultiFlexi\Ui\CredentialFormHelperPrototype
             'success' => true,
             'message' => '',
             'info'    => $info,
+            'raw'     => $raw,
         ];
     }
 }

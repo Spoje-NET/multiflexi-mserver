@@ -1,3 +1,14 @@
+multiflexi-mserver (1.2.1) unstable; urgency=medium
+
+  * fix: replace file_get_contents with curl in UI connection test
+  * fix: add CURLOPT_CONNECTTIMEOUT=5 and CURLOPT_TIMEOUT=10 to handle
+    frozen/unreachable mServer without hanging the web page
+  * fix: humanize curl error codes (timeout, refused, unresolvable host,
+    no response) into user-readable messages
+  * fix: show warning when mServer responds with status=busy or processing>0
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Mon, 26 May 2026 14:00:00 +0200
+
 multiflexi-mserver (1.2.0) unstable; urgency=medium
 
   * feat: add smart credential prototype PHP classes (CredentialProtoType and Ui)
