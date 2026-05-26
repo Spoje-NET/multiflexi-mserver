@@ -1,0 +1,22 @@
+{
+    "name": "vitexsoftware/multiflexi-mserver",
+    "description": "MultiFlexi support for Stormware Pohoda mServer API",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vítězslav Dvořák",
+            "email": "info@vitexsoftware.cz"
+        }
+    ],
+    "require": {
+        "vitexsoftware/multiflexi-core": ">=1.0"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "MultiFlexi\\CredentialProtoType\\": "src/MultiFlexi/CredentialProtoType/",
+            "MultiFlexi\\Ui\\CredentialType\\": "src/MultiFlexi/Ui/CredentialType/"
+        }
+    }
+}

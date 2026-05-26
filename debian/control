@@ -23,3 +23,15 @@ Description: MultiFlexi mServer Credential Prototype
  This credential prototype defines the configuration fields required to connect
  to the Pohoda mServer API, including support for a secondary account for
  year-end (December/January) data entry.
+
+Package: multiflexi-mserver-ui
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ multiflexi-mserver (= ${binary:Version}),
+ multiflexi-web,
+ ${misc:Depends}
+Description: MultiFlexi mServer UI components
+ Web UI form for the Stormware Pohoda mServer credential type.
+ Tests mServer API connectivity via /status endpoint and displays
+ server name, status and processing count.
