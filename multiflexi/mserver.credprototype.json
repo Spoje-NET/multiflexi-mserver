@@ -3,7 +3,7 @@
   "code": "mserver",
   "name": "Stormware Pohoda",
   "description": "Credential type for connecting to Stormware Pohoda mServer API",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "logo": "mServer.svg",
   "fields": [
     {
@@ -37,6 +37,22 @@
       "description": "Password for the mServer API",
       "hint": "pohoda",
       "required": true
+    },
+    {
+      "keyword": "POHODA_TIMEOUT",
+      "type": "integer",
+      "name": "Connection Timeout",
+      "description": "Timeout for mServer API requests in seconds",
+      "hint": "30",
+      "required": false
+    },
+    {
+      "keyword": "POHODA_COMPRESS",
+      "type": "boolean",
+      "name": "Enable Compression",
+      "description": "Enable gzip compression for mServer API requests",
+      "hint": "true",
+      "required": false
     },
     {
       "keyword": "POHODA_SECONDARY_USERNAME",

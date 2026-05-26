@@ -30,6 +30,7 @@ Multi-Arch: foreign
 Depends:
  multiflexi-mserver (= ${binary:Version}),
  multiflexi-web,
+ php-vitexsoftware-pohoda-connector,
  ${misc:Depends}
 Description: MultiFlexi mServer UI components
  Web UI form for the Stormware Pohoda mServer credential type.

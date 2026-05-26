@@ -40,6 +40,12 @@ class MServer extends \MultiFlexi\CredentialProtoType implements \MultiFlexi\cre
         $passwordField = new \MultiFlexi\ConfigField('POHODA_PASSWORD', 'password', _('mServer API Password'), _('Password for the mServer API'));
         $passwordField->setHint('pohoda')->setValue('');
 
+        $timeoutField = new \MultiFlexi\ConfigField('POHODA_TIMEOUT', 'integer', _('Connection Timeout'), _('Timeout for mServer API requests in seconds'));
+        $timeoutField->setHint('30')->setValue('30');
+
+        $compressField = new \MultiFlexi\ConfigField('POHODA_COMPRESS', 'boolean', _('Enable Compression'), _('Enable gzip compression for mServer API requests'));
+        $compressField->setHint('true')->setValue('true');
+
         $secUsernameField = new \MultiFlexi\ConfigField('POHODA_SECONDARY_USERNAME', 'string', _('Secondary Account Username'), _('Username for writing December data in January (previous year)'));
         $secUsernameField->setHint('winstrom2')->setValue('');
 
@@ -50,6 +56,8 @@ class MServer extends \MultiFlexi\CredentialProtoType implements \MultiFlexi\cre
         $this->configFieldsInternal->addField($urlField);
         $this->configFieldsInternal->addField($usernameField);
         $this->configFieldsInternal->addField($passwordField);
+        $this->configFieldsInternal->addField($timeoutField);
+        $this->configFieldsInternal->addField($compressField);
         $this->configFieldsInternal->addField($secUsernameField);
         $this->configFieldsInternal->addField($secPasswordField);
     }

@@ -1,3 +1,15 @@
+multiflexi-mserver (1.3.0) unstable; urgency=medium
+
+  * feat: add POHODA_TIMEOUT and POHODA_COMPRESS fields to credential prototype
+    to cover all env vars read by vitexsoftware/pohoda-connector
+  * feat: UI connection test now uses mServer\Client (pohoda-connector) so the
+    check exercises the same auth path as the applications
+  * feat: multiflexi-mserver-ui depends on php-vitexsoftware-pohoda-connector
+  * chore: add vitexsoftware/pohoda-connector to composer.json require
+  * chore: bump credential prototype version to 1.1.0
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Mon, 26 May 2026 16:00:00 +0200
+
 multiflexi-mserver (1.2.1) unstable; urgency=medium
 
   * fix: replace file_get_contents with curl in UI connection test

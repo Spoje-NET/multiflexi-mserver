@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "vitexsoftware/multiflexi-core": ">=1.0"
+        "vitexsoftware/multiflexi-core": ">=1.0",
+        "vitexsoftware/pohoda-connector": "*"
     },
     "minimum-stability": "dev",
     "autoload": {
