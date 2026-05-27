@@ -78,23 +78,23 @@ class MServer extends \MultiFlexi\CredentialProtoType implements \MultiFlexi\cre
     {
     }
 
-    public static function name(): string
+    public function name(): string
     {
         return _('Stormware Pohoda mServer');
     }
 
-    public static function description(): string
+    public function description(): string
     {
         return _('Credential type for connecting to Stormware Pohoda mServer API');
     }
 
-    public static function uuid(): string
+    public function uuid(): string
     {
         return '6ba7b814-9dad-11d1-80b4-00c04fd430c8';
     }
 
     #[\Override]
-    public static function logo(): string
+    public function logo(): string
     {
         return self::$logo;
     }
