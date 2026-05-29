@@ -4,7 +4,7 @@ set -e
 
 case "$1" in
     configure)
-        multiflexi-cli credential-prototype:sync
+        multiflexi-cli credential-prototype:import-json --file=/usr/lib/multiflexi-mserver/multiflexi/mserver.credprototype.json
         ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
