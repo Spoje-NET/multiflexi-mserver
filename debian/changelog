@@ -1,3 +1,11 @@
+multiflexi-mserver (1.3.1) unstable; urgency=medium
+
+  * fix: revert postinst to credential-prototype:sync; PHP class now
+    registers the prototype without a separate JSON file
+  * chore: remove redundant multiflexi/mserver.credprototype.json
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Thu, 29 May 2026 10:00:00 +0200
+
 multiflexi-mserver (1.3.0) unstable; urgency=medium
 
   * feat: add POHODA_TIMEOUT and POHODA_COMPRESS fields to credential prototype
