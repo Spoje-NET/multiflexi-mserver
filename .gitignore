@@ -3,3 +3,4 @@ debian/multiflexi-mserver/
 debian/.debhelper/
 debian/multiflexi-mserver.substvars
 debian/files
+/nbproject/private/

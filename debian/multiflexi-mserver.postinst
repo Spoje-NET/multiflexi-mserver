@@ -4,9 +4,7 @@ set -e
 
 case "$1" in
     configure)
-        if [ -x /usr/bin/multiflexi-cli ]; then
-            multiflexi-cli credential-prototype:sync
-        fi
+        multiflexi-cli credential-prototype:sync
         ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

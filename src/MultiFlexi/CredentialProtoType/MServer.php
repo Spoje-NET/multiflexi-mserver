@@ -90,7 +90,7 @@ class MServer extends \MultiFlexi\CredentialProtoType implements \MultiFlexi\cre
 
     public function uuid(): string
     {
-        return '6ba7b814-9dad-11d1-80b4-00c04fd430c8';
+        return '853f1d90-7dcd-412b-ac86-47a867dbb844';
     }
 
     #[\Override]
