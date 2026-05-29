@@ -1,6 +1,6 @@
 {
   "uuid": "853f1d90-7dcd-412b-ac86-47a867dbb844",
-  "code": "mserver",
+  "code": "MServer",
   "name": "Stormware Pohoda",
   "description": "Credential type for connecting to Stormware Pohoda mServer API",
   "version": "1.1.0",
