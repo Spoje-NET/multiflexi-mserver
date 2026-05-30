@@ -1,5 +1,5 @@
 {
-    "name": "vitexsoftware/multiflexi-mserver",
+    "name": "spojenet/multiflexi-mserver",
     "description": "MultiFlexi support for Stormware Pohoda mServer API",
     "type": "library",
     "license": "MIT",
