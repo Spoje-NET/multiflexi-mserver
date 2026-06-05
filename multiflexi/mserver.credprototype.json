@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/VitexSoftware/php-vitexsoftware-multiflexi-core/refs/heads/main/schema/credential-prototype.json",
   "uuid": "853f1d90-7dcd-412b-ac86-47a867dbb844",
   "code": "MServer",
   "name": "Stormware Pohoda",
@@ -70,6 +71,12 @@
       "hint": "pohoda2",
       "required": false
     }
+  ],
+  "homepage": "https://github.com/Spoje-NET/multiflexi-mserver",
+  "tags": [
+    "Pohoda",
+    "mServer",
+    "ERP",
+    "accounting"
   ]
 }
-
