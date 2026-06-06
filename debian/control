@@ -29,7 +29,7 @@ Architecture: all
 Multi-Arch: foreign
 Depends:
  multiflexi-mserver (= ${binary:Version}),
- multiflexi-web,
+ multiflexi-web|multiflexi-web5,
  php-vitexsoftware-pohoda-connector,
  ${misc:Depends}
 Description: MultiFlexi mServer UI components
