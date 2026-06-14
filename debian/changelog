@@ -1,9 +1,14 @@
-multiflexi-mserver (1.3.2) UNRELEASED; urgency=medium
+multiflexi-mserver (1.4.0) UNRELEASED; urgency=medium
 
+  * MServer prototype: add checkAvailability() — tests live mServer connection
+    via mServer\Client (same path apps use); maps HTTP 401 → Misconfigured,
+    connection refused/timeout → Unavailable, busy status → Degraded
+  * MServer UI helper: finalize() now delegates to prototype checkAvailability()
+    and renders CredentialCheckResult; business logic removed from UI layer
   * fix: use 'bool' field type for POHODA_COMPRESS (was 'boolean',
     rejected by ConfigField validator)
 
- -- Vitex <vitezslav.dvorak@spojenet.cz>  Fri, 29 May 2026 20:13:33 +0200
+ -- vitex <info@vitexsoftware.cz>  Sat, 14 Jun 2026 12:00:00 +0200
 
 multiflexi-mserver (1.3.1) unstable; urgency=medium
 
