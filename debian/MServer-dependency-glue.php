@@ -1,7 +1,3 @@
-<?php
-
-declare(strict_types=1);
-
 require_once '/usr/share/php/Composer/InstalledVersions.php';
 require_once '/usr/share/php/mServer/autoload.php';
 

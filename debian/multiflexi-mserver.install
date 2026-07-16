@@ -3,4 +3,3 @@ multiflexi/*.svg usr/share/multiflexi/images/
 multiflexi-mserver.svg usr/share/icons/hicolor/scalable/apps/
 debian/io.github.spoje_net.multiflexi_mserver.metainfo.xml usr/share/metainfo/
 src/MultiFlexi/CredentialProtoType/MServer.php usr/share/php/MultiFlexi/CredentialProtoType/
-debian/MServer-autoload.php usr/share/php/MultiFlexi/CredentialProtoType/
