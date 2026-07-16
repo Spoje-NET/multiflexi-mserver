@@ -5,5 +5,25 @@
 #export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,-O1
 
+PKG_VERSION := $(shell dpkg-parsechangelog -S Version | sed 's/~.*//')
+PKG_SOURCE  := $(shell jq -r '.name' composer.json)
+PKG_TYPE    := $(shell jq -r '.type' composer.json)
+
 %:
 	dh $@
+
+CREDENTIAL_PROTOTYPE := debian/multiflexi-mserver/usr/share/php/MultiFlexi/CredentialProtoType/MServer.php
+
+override_dh_install:
+	dh_install
+	# Splice this package's dependency-autoloading + InstalledVersions
+	# registration directly into the installed CredentialProtoType class
+	# file, right after its namespace declaration, instead of shipping a
+	# separate loose "autoload.php" file into the shared plugin directory
+	# (which should contain only actual CredentialPrototype class files,
+	# one per class).
+	sed -i '/^namespace MultiFlexi\\CredentialProtoType;$$/r debian/MServer-dependency-glue.php' \
+	    $(CREDENTIAL_PROTOTYPE)
+	sed -i "s|'unknown'|'$(PKG_SOURCE)'|" $(CREDENTIAL_PROTOTYPE)
+	sed -i "s|'0.0.0'|'$(PKG_VERSION)'|" $(CREDENTIAL_PROTOTYPE)
+	sed -i "s|'library'|'$(PKG_TYPE)'|g" $(CREDENTIAL_PROTOTYPE)
