@@ -4,6 +4,7 @@ Priority: optional
 Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
 Build-Depends:
  debhelper-compat (= 13),
+ jq,
 Standards-Version: 4.7.0
 Homepage: https://github.com/Spoje-NET/multiflexi-mserver
 Rules-Requires-Root: no
@@ -15,6 +16,7 @@ Depends:
  php-vitexsoftware-multiflexi-core,
  multiflexi-cli (>= 2.2.0),
  php-symfony-polyfill-php80,
+ php-vitexsoftware-pohoda-connector,
  ${misc:Depends}
 Description: MultiFlexi mServer Credential Prototype
  This repository contains the credential prototype for connecting MultiFlexi
