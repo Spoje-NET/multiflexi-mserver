@@ -1,6 +1,7 @@
 # MultiFlexi mServer Credential Prototype
 
 ![multiflexi-mserver](multiflexi-mserver.svg?raw=true)
+![Packaging: deb](https://img.shields.io/badge/packaging-.deb-red?logo=debian&logoColor=white)
 
 ![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
