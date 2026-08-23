@@ -62,7 +62,11 @@ class MServer extends \MultiFlexi\Ui\CredentialFormHelperPrototype
 
         /** @var \MultiFlexi\CredentialProtoType\MServer $prototype */
         $prototype = $this->credential->getCredentialType()->getPrototype();
-        $result    = $prototype->checkAvailability();
+        // getPrototype()->load() only pulls credential-type-level defaults
+        // (CrTypeOption, scoped by credential_type_id); overlay this specific
+        // credential's actual stored values before checking availability.
+        $prototype->fieldsInternal()->arrayToValues($fields->getRawEnvArray());
+        $result = $prototype->checkAvailability();
 
         $styleMap = [
             \MultiFlexi\CredentialState::Available->value     => 'success',
